@@ -6,11 +6,12 @@
 /*   By: levincen <levincen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:28:51 by levincen          #+#    #+#             */
-/*   Updated: 2024/11/15 11:35:42 by levincen         ###   ########.fr       */
+/*   Updated: 2024/11/15 19:31:09 by levincen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 int	ft_putchar(char c)
 {
@@ -40,8 +41,10 @@ int	ft_print_percent(void)
 	return (1);
 }
 
-int	ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
+	int	count;
+
 	if (n == -2147483648)
 		ft_putstr("-2147483648");
 	else
@@ -54,12 +57,11 @@ int	ft_putnbr(int n)
 		if (n >= 9)
 			ft_putnbr(n / 10);
 		ft_putchar((n % 10) + '0');
-}
+	}
 }
 
 // int	main()
 // {
-// 	ft_print_nbr(-475);
-// 	write(1, "\n", 1);
+// 	printf("%i\n", printf("connard\n"));
 // 	return 0;
 // }
