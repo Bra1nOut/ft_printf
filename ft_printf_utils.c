@@ -6,7 +6,7 @@
 /*   By: levincen <levincen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:28:51 by levincen          #+#    #+#             */
-/*   Updated: 2024/11/15 19:31:09 by levincen         ###   ########.fr       */
+/*   Updated: 2024/11/19 14:06:58 by levincen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_print_str(char *str)
 	int	count;
 
 	i = 0;
+	count = 0;
 	if (!str)
 		return (ft_print_str("(null)"));
 	while (str[i])
@@ -41,23 +42,40 @@ int	ft_print_percent(void)
 	return (1);
 }
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	int	count;
 
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	else
+	count = 0;
+	if (n < 0)
 	{
-		if (n < 0)
-		{
-			ft_putchar('-');
-			n *= -1;
-		}
-		if (n >= 9)
-			ft_putnbr(n / 10);
-		ft_putchar((n % 10) + '0');
+		count += ft_putchar('-');
+		n *= -1;
 	}
+	if (n > 9)
+	{
+		count += ft_putnbr(n / 10);
+		count += ft_putnbr(n % 10);
+	}
+	if (n >= 0 && n <= 9)
+		count += ft_putchar(n + '0');
+	return (count);
+}
+
+int	ft_print_udecimal(unsigned int n)
+{
+	int	count;
+
+	count = 0;
+	if (n > 9)
+	{
+		count += ft_print_udecimal(n / 10);
+		ft_print_udecimal(n % 10);
+	}
+	if (n <= 9)
+		ft_putchar(n + '0');
+	count++;
+	return (count);
 }
 
 // int	main()
