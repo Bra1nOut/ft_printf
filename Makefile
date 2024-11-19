@@ -11,7 +11,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 .c.o:
-	cc $(FLAGS) -c -o $@ $<
+	cc  -c -o $@ $<
 
 all: $(NAME)
 

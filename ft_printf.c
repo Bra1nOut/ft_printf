@@ -6,13 +6,13 @@
 /*   By: levincen <levincen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 07:47:36 by levincen          #+#    #+#             */
-/*   Updated: 2024/11/19 14:09:47 by levincen         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:38:11 by levincen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_format(va_list args, char format)
 {
@@ -23,7 +23,7 @@ int	ft_format(va_list args, char format)
 		len += ft_putchar(va_arg(args, int));
 	else if (format == 's')
 		len += ft_print_str(va_arg(args, char *));
-	else if (format == 'd')
+	else if (format == 'd' || format == 'i')
 		len += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
 		len += ft_print_udecimal(va_arg(args, int));
@@ -44,23 +44,14 @@ int	ft_printf(const char *str, ...)
 	len = 0;
 	va_start(args, str);
 
-	while(str[++i])
+	while (str[++i])
 	{
 		if (str[i] == '%' && ++i)
-		{
 			len += ft_format(args, str[i]);
-			i++;
-		}
-		ft_putchar(str[i]);
-		len++;
+		else
+			len += ft_putchar(str[i]);
 	}
 	va_end(args);
 	return (len);
 }
 
-int	main()
-{
-	ft_printf("%u\n", -1);
-	printf("%u\n", -1);
-	return 0;
-}
