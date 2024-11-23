@@ -6,7 +6,7 @@
 /*   By: levincen <levincen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 07:48:15 by levincen          #+#    #+#             */
-/*   Updated: 2024/11/19 18:24:37 by levincen         ###   ########.fr       */
+/*   Updated: 2024/11/23 13:26:47 by levincen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include "../libft/libft.h"
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);
@@ -24,5 +23,6 @@ int		ft_print_percent(void);
 int		ft_print_udecimal(unsigned int n);
 int		ft_putnbr(long int n);
 int		ft_print_hexa(unsigned long nb, char *format);
+int		ft_printptr(unsigned long int nb);
 
 #endif

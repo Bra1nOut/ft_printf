@@ -6,7 +6,7 @@
 /*   By: levincen <levincen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 08:28:51 by levincen          #+#    #+#             */
-/*   Updated: 2024/11/19 18:27:26 by levincen         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:50:57 by levincen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,7 @@ int	ft_print_udecimal(unsigned int n)
 
 // int	main()
 // {
-// 	// printf("%i\n", printf("-2147483648"));
-// 	ft_putnbr(-2147483648);
-// 	printf("%i\n", ft_putnbr(-2147483648));
+// 	printf("%p\n",);
 
 // 	return 0;
 // }

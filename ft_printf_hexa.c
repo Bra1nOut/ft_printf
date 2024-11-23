@@ -6,7 +6,7 @@
 /*   By: levincen <levincen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 10:55:38 by levincen          #+#    #+#             */
-/*   Updated: 2024/11/19 14:27:08 by levincen         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:12:47 by levincen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,21 @@ int	ft_print_hexa(unsigned long nb, char *format)
 	}
 	return (count);
 }
+
+int	ft_printptr(unsigned long nb)
+{
+	int	count;
+
+	count = 0;
+	if (!nb)
+		return (ft_print_str("(nil)"));
+	if (nb == 0)
+		return (ft_print_str("(nil"));
+	write(1, "0x", 2);
+	count += ft_print_hexa(nb, "x");
+	return (count + 2);
+}
+
 // int	main(void)
 // {
 // 	int	i = 255;
